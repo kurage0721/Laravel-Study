@@ -1,4 +1,3 @@
-# Laravel-Study
 Laravel学習用
 
 
@@ -56,3 +55,14 @@ $ php artisan serv
 http://127.0.0.1:8000/
 を叩くと初期画面表示、ctrl+cで停止、再度起動するときはプロジェクトディレクトリで上記のコマンド叩くと見れる。
 ＊ポートはデフォで8000だが、serv のあとに —port=8080など付けて叩くと指定したポートで起動する
+
+## Laravel IDE Helperのインストール
+インストール
+```
+composer require --dev barryvdh/laravel-ide-helper
+```
+
+ヘルパーファイルの作成
+```
+php artisan ide-helper:generate
+```

@@ -4,6 +4,12 @@ Laravel学習用
 ## ローカル環境構築
 PHP 7.3.11  
 Composer 1.10.5  
+Laravel Framework 8.9.0
+
+Laravelのバージョン確認コマンド
+```
+$php artisan -V
+```
 
 プロジェクトを設置するディレクトリにcdして、下記を入力  
 ```

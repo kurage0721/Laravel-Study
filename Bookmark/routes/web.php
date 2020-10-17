@@ -13,14 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//ルートでwelcome.blade.phpを表示させる記述
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return "test";
-});
-
-Route::get('/test2', function () {
-    return "test2";
-});

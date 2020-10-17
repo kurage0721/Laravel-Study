@@ -22,6 +22,7 @@
                             </tr>
                         @endforeach
                     </table>
+                    {{ $bookmarks->links() }}
                 </div>
 
             </div>

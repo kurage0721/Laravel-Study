@@ -4,7 +4,8 @@ Laravel学習用
 ## ローカル環境構築
 PHP 7.3.11  
 Composer 1.10.5  
-Laravel Framework 8.9.0
+-Laravel Framework 8.9.0-
+Laravel Framework 5.8
 
 Laravelのバージョン確認コマンド
 ```

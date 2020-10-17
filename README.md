@@ -1,5 +1,6 @@
 Laravel学習用
-
+参考教材
+https://www.youtube.com/playlist?list=PL3B2bjwrmhfSg8wVfjW-ldH8zNu_xf7zB
 
 ## ローカル環境構築
 PHP 7.3.11  

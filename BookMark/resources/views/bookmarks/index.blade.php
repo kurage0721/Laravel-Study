@@ -8,6 +8,7 @@
                 <div class="card-header">ブックマーク一覧</div>
 
                 <div class="card-body">
+                    <a href="{{ route('bookmarks.create') }}" class="btn btn-primary">新規登録</a>
                     <table class="table">
                         <thead>
                             <tr>

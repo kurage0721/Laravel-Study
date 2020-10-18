@@ -5,11 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">ブックマーク登録</div>
+                <div class="card-header">ブックマーク編集</div>
 
                 <div class="card-body">
-                    {{-- actionにはbookmarks storeのルートを指定する --}}
-                    <form method="POST" action="{{ route('bookmarks.store') }}">
+                    {{-- actionにはbookmarks updateのルートを指定する 第二ひきすうに$bookmark変数を取る--}}
+                    <form method="POST" action="{{ route('bookmarks.update',$bookmark) }}">
+                        {{-- editの場合はPUTを使うので下記のように記述する --}}
+                        @method('PUT')
                         {{-- Laravelは標準でCSRFのチェック機能があるので、フォームを書く際は@csrfを書く--}}
                         @csrf
                         @include('bookmarks.fields')

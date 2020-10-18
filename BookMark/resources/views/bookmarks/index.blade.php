@@ -16,12 +16,20 @@
                             <tr>
                                 <th>ID</th>
                                 <th>タイトル</th>
+                                <th>アクション</th>
                             </tr>
                         </thead>
                         @foreach ($bookmarks as $bookmark)
                             <tr>
                                 <td>{{ $bookmark->id }}</td>
-                                <td><a href="{{route("bookmarks.show",$bookmark->id)}}">{{ $bookmark->title }}</a></td>
+                                {{-- リンク先をレコードのURL値に --}}
+                                <td><a href="{{$bookmark->url}}" target="_blank">{{ $bookmark->title }}</a></td>
+                                <td>
+                                    {{-- 詳細画面へリンクするボタンを追加 --}}
+                                    <a href="{{route("bookmarks.show",$bookmark)}}" class="btn btn-secondary btn-sm">詳細を表示</a>
+                                    {{-- 編集画面へ入るボタンを追加 --}}
+                                    <a href="{{route("bookmarks.edit",$bookmark)}}" class="btn btn-secondary btn-sm">編集</a>
+                                </td>
                             </tr>
                         @endforeach
                     </table>

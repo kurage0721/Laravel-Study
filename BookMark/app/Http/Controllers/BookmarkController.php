@@ -15,7 +15,8 @@ class BookmarkController extends Controller
     public function index()
     {
         // dd(Bookmark::all());
-        $bookmarks = Bookmark::paginate(20);
+        //id, descで降順に表示されるよう設定
+        $bookmarks = Bookmark::orderby('id', 'desc')->paginate(20);
 
         return view('bookmarks.index', compact('bookmarks'));
     }
@@ -38,7 +39,13 @@ class BookmarkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //レコードを新たに登録するにはモデルのcreateメソッドを記述
+        //引数に$request->all()を使用することにより、フォームで入力した値を取り出すことができる。
+        //ただし、$request->all()はすべてのリクエストを取得して更新してしまうため、想定していない値まで更新してしまう場合があるので、
+        //指定した値だけ更新する場合はModelに$fillableを設定する→Bookmark.php
+        Bookmark::create($request->all());
+        //保存処理が終わったら一覧ページにリダイレクトする処理
+        return redirect()->route('bookmarks.index');
     }
 
     /**
@@ -61,7 +68,8 @@ class BookmarkController extends Controller
      */
     public function edit(Bookmark $bookmark)
     {
-        //
+        //viewを表示するメソッドになる、レコードを編集するのでbookmark変数をそのまま渡す
+        return view('bookmarks.edit', compact('bookmark'));
     }
 
     /**
@@ -73,7 +81,11 @@ class BookmarkController extends Controller
      */
     public function update(Request $request, Bookmark $bookmark)
     {
-        //
+        
+        //レコードを新たに登録するにはモデルのupdateメソッドを記述
+        $bookmark->update($request->all());
+        //保存処理が終わったらそのまま編集ページにリダイレクトする処理
+        return redirect()->route('bookmarks.edit', $bookmark);
     }
 
     /**

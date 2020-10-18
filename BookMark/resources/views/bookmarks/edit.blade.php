@@ -8,7 +8,7 @@
                 <div class="card-header">ブックマーク編集</div>
 
                 <div class="card-body">
-                    {{-- actionにはbookmarks updateのルートを指定する 第二ひきすうに$bookmark変数を取る--}}
+                    {{-- actionにはbookmarks updateのルートを指定する 第二引数に$bookmark変数を取る--}}
                     <form method="POST" action="{{ route('bookmarks.update',$bookmark) }}">
                         {{-- editの場合はPUTを使うので下記のように記述する --}}
                         @method('PUT')

@@ -96,6 +96,9 @@ class BookmarkController extends Controller
      */
     public function destroy(Bookmark $bookmark)
     {
-        //
+        //削除機能はModelのdeleteメソッドを使う
+        $bookmark->delete();
+        //処理完了したら一覧ページにリダイレクト
+        return redirect()->route('bookmarks.index');
     }
 }

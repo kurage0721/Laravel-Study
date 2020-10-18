@@ -21,14 +21,23 @@
                         </thead>
                         @foreach ($bookmarks as $bookmark)
                             <tr>
-                                <td>{{ $bookmark->id }}</td>
+                                <td class="align-middle">{{ $bookmark->id }}</td>
                                 {{-- リンク先をレコードのURL値に --}}
-                                <td><a href="{{$bookmark->url}}" target="_blank">{{ $bookmark->title }}</a></td>
-                                <td>
-                                    {{-- 詳細画面へリンクするボタンを追加 --}}
-                                    <a href="{{route("bookmarks.show",$bookmark)}}" class="btn btn-secondary btn-sm">詳細を表示</a>
-                                    {{-- 編集画面へ入るボタンを追加 --}}
-                                    <a href="{{route("bookmarks.edit",$bookmark)}}" class="btn btn-secondary btn-sm">編集</a>
+                                <td class="align-middle"><a href="{{$bookmark->url}}" target="_blank">{{ $bookmark->title }}</a></td>
+                                <td class="align-middle">
+                                    <div class="d-flex">
+                                        {{-- 詳細画面へリンクするボタン --}}
+                                        <a href="{{route("bookmarks.show",$bookmark)}}" class="btn btn-secondary btn-sm">詳細を表示</a>
+                                        {{-- 編集画面へ入るボタン --}}
+                                        <a href="{{route("bookmarks.edit",$bookmark)}}" class="btn btn-secondary btn-sm ml-1">編集</a>
+                                        {{-- destroyメソッドはstoreやupdate同様にレコードを操作するためformで実行する必要がある。--}}
+                                        <form method="POST" action="{{route('bookmarks.destroy', $bookmark)}}">
+                                            @method('DELETE')
+                                            @csrf
+                                            {{-- onclickで削除前にアラートを出す --}}
+                                            <button onclick="return confirm('本当に削除しますか？')" class="btn btn-secondary btn-sm ml-1">削除</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

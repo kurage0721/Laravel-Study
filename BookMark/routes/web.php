@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('bookmarks','BookmarkController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//一覧ページ
+Route::get('bookmarks','BookmarkController@index');
+//詳細ページ
+Route::get('bookmarks/{bookmark}','BookmarkController@show')->where('id', '[0-9]+')->name('bookmarks.show');

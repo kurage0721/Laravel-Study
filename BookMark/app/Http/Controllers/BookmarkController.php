@@ -49,7 +49,8 @@ class BookmarkController extends Controller
      */
     public function show(Bookmark $bookmark)
     {
-        //
+
+        return view('bookmarks.show', compact('bookmark'));
     }
 
     /**

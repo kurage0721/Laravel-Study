@@ -27,7 +27,7 @@ class BookmarkController extends Controller
      */
     public function create()
     {
-        //
+        return view('bookmarks.create');
     }
 
     /**

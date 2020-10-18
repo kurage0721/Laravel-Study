@@ -20,7 +20,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//一覧ページ
-Route::get('bookmarks','BookmarkController@index');
-//詳細ページ
-Route::get('bookmarks/{bookmark}','BookmarkController@show')->where('id', '[0-9]+')->name('bookmarks.show');
+// //一覧ページ
+// Route::get('bookmarks','BookmarkController@index');
+// //詳細ページ
+// Route::get('bookmarks/{bookmark}','BookmarkController@show')->where('id', '[0-9]+')->name('bookmarks.show');
+// //レコード追加
+// Route::post('bookmarks','BookmarkController@store');
+
+//CRUD実装 第一引数にはURL,第二引数にはコントローラ名を記述
+Route::resource('bookmarks','BookmarkController');

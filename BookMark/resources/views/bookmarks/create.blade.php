@@ -8,6 +8,8 @@
                 <div class="card-header">ブックマーク登録</div>
 
                 <div class="card-body">
+                    {{-- この位置(レコードテーブルの上)に表示させたいのでここにインクルード --}}
+                    @include('components.alert')
                     {{-- actionにはbookmarks storeのルートを指定する --}}
                     <form method="POST" action="{{ route('bookmarks.store') }}">
                         {{-- Laravelは標準でCSRFのチェック機能があるので、フォームを書く際は@csrfを書く--}}

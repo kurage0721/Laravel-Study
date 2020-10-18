@@ -45,7 +45,10 @@ class BookmarkController extends Controller
         //指定した値だけ更新する場合はModelに$fillableを設定する→Bookmark.php
         Bookmark::create($request->all());
         //保存処理が終わったら一覧ページにリダイレクトする処理
-        return redirect()->route('bookmarks.index');
+        return redirect()
+        ->route('bookmarks.index')
+        //フラッシュメッセージを追加 第一引数には任意のセッション名 第二引数には実際に表示する文字列
+        ->with('status','ブックマークを登録しました。');
     }
 
     /**
@@ -85,7 +88,10 @@ class BookmarkController extends Controller
         //レコードを新たに登録するにはモデルのupdateメソッドを記述
         $bookmark->update($request->all());
         //保存処理が終わったらそのまま編集ページにリダイレクトする処理
-        return redirect()->route('bookmarks.edit', $bookmark);
+        return redirect()
+        ->route('bookmarks.edit', $bookmark)
+        //フラッシュメッセージを追加 第一引数には任意のセッション名 第二引数には実際に表示する文字列
+        ->with('status','ブックマークを更新しました。');
     }
 
     /**

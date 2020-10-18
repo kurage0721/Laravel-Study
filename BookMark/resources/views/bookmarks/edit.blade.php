@@ -8,6 +8,8 @@
                 <div class="card-header">ブックマーク編集</div>
 
                 <div class="card-body">
+                    {{-- この位置(レコードテーブルの上)に表示させたいのでここにインクルード --}}
+                    @include('components.alert')
                     {{-- actionにはbookmarks updateのルートを指定する 第二引数に$bookmark変数を取る--}}
                     <form method="POST" action="{{ route('bookmarks.update',$bookmark) }}">
                         {{-- editの場合はPUTを使うので下記のように記述する --}}

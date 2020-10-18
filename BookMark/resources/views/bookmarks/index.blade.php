@@ -11,6 +11,7 @@
                     <div class="mb-3">
                         <a href="{{ route('bookmarks.create') }}" class="btn btn-primary">新規登録</a>
                     </div>
+                    @include('components.alert')
                     <table class="table">
                         <thead>
                             <tr>

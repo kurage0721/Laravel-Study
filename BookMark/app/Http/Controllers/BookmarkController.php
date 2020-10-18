@@ -99,6 +99,9 @@ class BookmarkController extends Controller
         //削除機能はModelのdeleteメソッドを使う
         $bookmark->delete();
         //処理完了したら一覧ページにリダイレクト
-        return redirect()->route('bookmarks.index');
+        return redirect()
+        ->route('bookmarks.index')
+        //フラッシュメッセージを追加 第一引数には任意のセッション名 第二引数には実際に表示する文字列
+        ->with('status','ブックマークを削除しました。');
     }
 }

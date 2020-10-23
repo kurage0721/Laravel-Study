@@ -29,3 +29,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //CRUD実装 第一引数にはURL,第二引数にはコントローラ名を記述
 Route::resource('bookmarks','BookmarkController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

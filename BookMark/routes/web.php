@@ -14,12 +14,6 @@
 
 Auth::routes();
 
-// //一覧ページ
-// Route::get('bookmarks','BookmarkController@index');
-// //詳細ページ
-// Route::get('bookmarks/{bookmark}','BookmarkController@show')->where('id', '[0-9]+')->name('bookmarks.show');
-// //レコード追加
-// Route::post('bookmarks','BookmarkController@store');
 
 //bookmarkアプリケーション全体をログイン必須にする
 Route::group(['middleware' => 'auth'], function() {

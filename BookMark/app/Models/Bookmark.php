@@ -12,6 +12,6 @@ class Bookmark extends Model
 
     public function tags()
     {
-        return $this->belongToMany(Tag::class);
+        return $this->belongsToMany(Tag::class);
     }
 }

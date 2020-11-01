@@ -9,4 +9,10 @@ class Tag extends Model
     protected $fillable =[
         'title'
     ];
+
+    public function bookmarks()
+    {
+        return $this->belongsToMany(Bookmark::class);
+    }
+    
 }

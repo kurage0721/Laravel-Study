@@ -21,20 +21,45 @@
         @enderror
     </div>
 </div>
+
 <div class="form-group row">
     <label for="inputDescription" class="col-sm-2 col-form-label">説明文</label>
     <div class="col-sm-10">
-        <textarea type="text" name="description" class="form-control " id="inputDescription" rows="5">{{  $bookmark->description ?? '' }}</textarea>
+        <textarea type="text" name="description" class="form-control  @error('description') is-invalid @enderror" id="inputDescription" rows="5">{{  $bookmark->description ?? '' }}</textarea>
+        @error('description')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
 </div>
 
-{{-- <div class="form-group row">
+<div class="form-group row">
     <label for="inputTag" class="col-sm-2 col-form-label">タグ</label>
     <div class="col-sm-10">
-      <textarea type="text" name="tag" class="form-control @error('tag') is-invalid @enderror" id="inputDescription" rows="5">{{  $bookmark->description ?? '' }}</textarea>
-      
+        @foreach ($tags as $key => $tag)
+            <div class="form-check form-check-inline">
+                <input 
+                type="checkbox"
+                name="tags[]"
+                value="{{ $key }}"
+                id="tag{{ $key }}"
+                {{-- collectionのcontainsは引数に$keyが含まれる場合trueを返す --}}
+                @if (isset($bookmark->tags) && $bookmark->tags->contains($key))
+                    checked
+                @endif
+                >
+                <label for="tag{{$key}}" class="form-check-label">{{$tag}}</label>
+            </div>
+        @endforeach
+        @error('tags')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
-</div> --}}
+</div>
+
 
 <div class="form-group row">
     <div class="col-sm-10">

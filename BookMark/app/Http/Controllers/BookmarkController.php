@@ -18,6 +18,7 @@ class BookmarkController extends Controller
     {
         // dd(Bookmark::all());
         //id, descで降順に表示されるよう設定
+
         $bookmarks = Bookmark::orderby('id', 'desc')->paginate(20);
 
         return view('bookmarks.index', compact('bookmarks'));

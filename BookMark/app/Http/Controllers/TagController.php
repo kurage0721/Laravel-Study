@@ -60,8 +60,8 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-
-        return view('tags.show', compact('tag'));
+        $bookmarks = $tag->bookmarks()->paginate(20);
+        return view('tags.show', compact('tag','bookmarks'));
     }
 
     /**
@@ -105,6 +105,7 @@ class TagController extends Controller
     {
         //削除機能はModelのdeleteメソッドを使う
         $tag->delete();
+        $tag->bookmarks()->detach();
         //処理完了したら一覧ページにリダイレクト
         return redirect()
         ->route('tags.index')

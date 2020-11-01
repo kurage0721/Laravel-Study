@@ -24,5 +24,7 @@ Route::group(['middleware' => 'auth'], function() {
     //CRUD実装 第一引数にはURL,第二引数にはコントローラ名を記述
     Route::resource('bookmarks','BookmarkController');
 
+    Route::resource('tags','TagController');
+
 });
 

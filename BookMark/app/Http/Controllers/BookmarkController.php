@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bookmark;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Http\Requests\BookmarkRequest;
 
 class BookmarkController extends Controller
 {
@@ -37,7 +38,7 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookmarkRequest $request)
     {
         //レコードを新たに登録するにはモデルのcreateメソッドを記述
         //引数に$request->all()を使用することにより、フォームで入力した値を取り出すことができる。
@@ -82,7 +83,7 @@ class BookmarkController extends Controller
      * @param  \App\Models\Bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bookmark $bookmark)
+    public function update(BookmarkRequest $request, Bookmark $bookmark)
     {
         
         //レコードを新たに登録するにはモデルのupdateメソッドを記述
